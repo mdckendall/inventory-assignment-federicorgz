@@ -35,7 +35,7 @@ public class Main{
 					serialNum = in.next();
 					System.out.println("Enter the new name:");
 					items.get(serialNum)[0] = in.next();
-					System.out.println("Enter the value in dollars (whole number):");
+					System.out.println("Enter the new value in dollars (whole number):");
 					items.get(serialNum)[1] = in.nextInt();
 					break;
 				case(4):
