@@ -1,9 +1,27 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+class Inventory{
+	String serialNum;
+	String name;
+	int dollars;
+	
+	public Inventory(String _serialNum, String _name, int _dollars){
+		this.serialNum = _serialNum;
+		this.name = _name;
+		this.dollars = _dollars;
+	}
+	
+	@Override
+	
+	public String toString(){
+		return name+","+serialNum+","+dollars;
+	}
+}
+
 public class Main{
 	public static void main(String[] args){
-		HashMap<String,Object[]>  items =  new HashMap<String,Object[]>();
+		HashMap<String,Inventory>  items =  new HashMap<String,Inventory>();
 		Scanner in = new Scanner(System.in);
 		int input, dollars;
 		String name, serialNum;
@@ -23,7 +41,7 @@ public class Main{
 					serialNum = in.next();
 					System.out.println("Enter the value in dollars (whole number):");
 					dollars = in.nextInt();
-					items.put(serialNum,new Object[]{name,dollars});
+					items.put(serialNum,new Inventory(serialNum,name,dollars));
 					break;
 				case(2):
 					System.out.println("Enter the serial number:");
@@ -34,13 +52,13 @@ public class Main{
 					System.out.println("Enter the serial number of the item to change:");
 					serialNum = in.next();
 					System.out.println("Enter the new name:");
-					items.get(serialNum)[0] = in.next();
+					items.get(serialNum).name = in.next();
 					System.out.println("Enter the new value in dollars (whole number):");
-					items.get(serialNum)[1] = in.nextInt();
+					items.get(serialNum).dollars = in.nextInt();
 					break;
 				case(4):
 					for(String i : items.keySet()){
-						System.out.println(items.get(i)[0]+","+i+","+items.get(i)[1]);
+						System.out.println(items.get(i));
 					}
 					break;
 				case(5):
